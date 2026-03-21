@@ -364,3 +364,9 @@ dist
 Git/.DS_Store
 UI-Scenarios/cypress/screenshots/*
 *.png 
+
+# Allow iOS app artifacts in this repository
+!Mobile-Scenarios/app/app/ios/
+!Mobile-Scenarios/app/app/ios/loja-ebac.ipa
+!Mobile-Scenarios/app/app/ios/loja-ebac.app/
+!Mobile-Scenarios/app/app/ios/loja-ebac.app/**
