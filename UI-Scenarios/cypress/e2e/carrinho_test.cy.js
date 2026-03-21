@@ -15,14 +15,14 @@ describe('Checkout testing', () => {
         cy.get('[data-testid="remove"] > .css-146c3p1').click({multiple: true, force: true})
     });
 
-    it('Should try to do a checkout sucessfully', () => {
+    it.only('Should try to do a checkout sucessfully', () => {
         cy.login(usuario, senha)
         cy.clickMenu('Browse')
         cy.chooseAnItemToBuy()
         cy.clickByID('addToCart')
         });
 
-    it.only('Validar desconto de 10% para carrinhos R$599,99 de produtos', () => {
+    it('Validar desconto de 10% para carrinhos R$599,99 de produtos', () => {
         cy.login(usuario, senha)
         cy.clickMenu('Browse')
         cy.chooseAnItemToBuy()

@@ -21,7 +21,7 @@ describe('Funcionalidade: Login', ()=> {
     });
 
     it('Deve exibir uma mensagem de erro ao inserir o usuário inválido', () => {
-        cy,fixture('perfil').then( dados => {
+        cy.fixture('perfil').then( dados => {
             cy.login("leticia.ebac@test.com", dados.senha)
             cy.get('[data-testid="warning"]').should('contain', 'Email is incorrect')
         })
@@ -34,7 +34,7 @@ describe('Funcionalidade: Login', ()=> {
         })
     });
 
-    it.only('Deve exibir uma mensagem de bloqueio ao errar a senha tres vezes', () => {
+    it('Deve exibir uma mensagem de bloqueio ao errar a senha tres vezes', () => {
         cy.clickMenu('Account')
         for(let i = 0; i < 3; i++) {
             cy.fixture('perfil').then( dados => {

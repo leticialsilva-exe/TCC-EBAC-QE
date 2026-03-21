@@ -365,3 +365,4 @@ dist
 !android/*
 Git/.DS_Store
 UI-Scenarios/cypress/screenshots/*
+*.png 
