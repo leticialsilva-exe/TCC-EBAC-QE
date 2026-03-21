@@ -26,16 +26,24 @@ export const config = {
             './test/specs/map-elements.test.js'
         ]
     },
+    services: [
+        ['appium', {
+            command: 'appium',
+            args: {
+                port: 4723,
+                relaxedSecurity: true
+            }
+        }]
+    ],
     maxInstances: 1,
     capabilities: [
         {
             "platformName": "iOS",
-            "appium:platformVersion": "18.6",
-            "appium:deviceName": "IPhone 15",
+            "appium:platformVersion": "18.2",
+            "appium:deviceName": "iPhone 15",
             "appium:automationName": "XCUITest",
-            //"appium:app": "/Users/leticia/Documents/EBAC/ebac-store-mobile-tests/app/LojaEBAC-sim.app",
             "appium:app": `${process.cwd()}/app/app/ios/loja-ebac.app`,
-            "appium:udid": "0C65B04D-D387-4D99-A317-DE374797C139",
+            // "appium:udid": "0C65B04D-D387-4D99-A317-DE374797C139", // local only — removed for CI
             "appium:appWaitActivity": ".MainActivity",
             "appium:disableIdLocatorAutocompletion": true
             //"appium:noReset": true, // Set noReset to true if you want to keep the app and its data on the simulator between test runs.
