@@ -2,19 +2,26 @@ import { $ , driver } from '@wdio/globals'
 
 class HomePage {
 
-        async openMenu(menu){
-            if(driver.isAndroid)
-                await $(`id:tab-${menu}`).click()
+        async openMenuNavegacao(){
             if(driver.isIOS)
-                await $(`~tab-${menu}`).click()
+                await $(`~Abrir menu de navegação`).click()
         }
 
         get ebacHomeLogo(){
-            if(driver.isAndroid)
-                return $('android=new UiSelector().text("EBAC Store")')
             if(driver.isIOS)
-                return $('//XCUIElementTypeStaticText[@name="EBAC Store"]')
+                return $('XCUIElementTypeImage')
          }
+
+         get menuNavegacao(){
+            if(driver.isIOS)
+                return $('~Cardápio')
+        }
+
+        async clicarMenuListaDeDesejos(){
+            if(driver.isIOS)
+                await $('~Lista de Desejos').click()
+        }   
+    
 }
 
 export default new HomePage();

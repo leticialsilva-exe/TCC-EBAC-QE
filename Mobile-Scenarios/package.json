@@ -8,7 +8,9 @@
     "test": "wdio run wdio.ios.conf.js",
     "test:ios:login": "wdio run ./wdio.ios.conf.js --suite login",
     "test:ios:signUp": "wdio run ./wdio.ios.conf.js --suite signUp",
-    "test:ios:cart": "wdio run ./wdio.ios.conf.js --suite cart"
+    "test:ios:cart": "wdio run ./wdio.ios.conf.js --suite cart",
+    "test:ios:map": "wdio run ./wdio.ios.conf.js --suite map"
+
 
   },
   "dependencies": {

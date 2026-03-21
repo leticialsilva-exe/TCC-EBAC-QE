@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-03-21T17:26:10.248Z",
+  "platform": "iOS",
+  "total": 4,
+  "elements": [
+    {
+      "type": "XCUIElementTypeButton",
+      "label": "Abrir menu de navegação",
+      "name": "Abrir menu de navegação",
+      "value": null,
+      "text": "Abrir menu de navegação"
+    },
+    {
+      "type": "XCUIElementTypeButton",
+      "label": "0",
+      "name": null,
+      "value": null,
+      "text": "0"
+    },
+    {
+      "type": "XCUIElementTypeStaticText",
+      "label": "Sem resultados",
+      "name": "Sem resultados",
+      "value": "Sem resultados",
+      "text": "Sem resultados"
+    },
+    {
+      "type": "XCUIElementTypeStaticText",
+      "label": "puxar carga",
+      "name": "puxar carga",
+      "value": "puxar carga",
+      "text": "puxar carga"
+    }
+  ]
+}

@@ -2,16 +2,15 @@
 
 import { expect , driver} from '@wdio/globals'
 import homePage from '../pageobjects/home.page.js'
-import loginPage from '../pageobjects/login.page.js'
-import profilePage from '../pageobjects/profile.page.js'
+import listaDesejosPage from '../pageobjects/listaDesejos.page.js'
 
 describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        let profileMenu = driver.isAndroid ? 'profile' : 'Account'
-        await homePage.openMenu(profileMenu)
-        await loginPage.login('lele@ebac.com','ebac123')
-        await loginPage.login('lele@ebac.com','ebac123')
-        await homePage.openMenu("Account")
-        expect((await profilePage.profileInfo('Lopes Silva')).isDisplayed()).toBeTruthy()
+    it('Should navigate to Lista de Desejos', async () => {
+        await expect(homePage.ebacHomeLogo).toBeDisplayed()
+        await driver.pause(2000)
+        await homePage.openMenuNavegacao()
+        expect((await homePage.menuNavegacao).isDisplayed()).toBeTruthy()
+        await homePage.clicarMenuListaDeDesejos
+        expect((await listaDesejosPage.menuListaDeDesejos()).isDisplayed()).toBeTruthy()
     })
 })
