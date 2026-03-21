@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - name: Install dependencies
+      run: cd API-Scenarios && npm ci
+    - name: Run tests
+      run: cd API-Scenarios && npm test
+
+  ui-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - name: Install dependencies
+      run: cd UI-Scenarios && npm ci
+    - name: Run Cypress tests
+      run: cd UI-Scenarios && npx cypress run --headless
+
+  mobile-tests:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - name: Install dependencies
+      run: cd Mobile-Scenarios && npm ci
+    - name: Run WebDriverIO tests
+      run: cd Mobile-Scenarios && npx wdio run wdio.ios.conf.js
