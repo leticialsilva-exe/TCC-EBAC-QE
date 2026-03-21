@@ -361,8 +361,6 @@ dist
 !/.vscode/settings.json
 !/.vscode/tasks.json
 !/.vscode/launch.json 
-!ios/*
-!android/*
 Git/.DS_Store
 UI-Scenarios/cypress/screenshots/*
 *.png 
