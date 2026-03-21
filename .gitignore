@@ -364,3 +364,4 @@ dist
 !ios/*
 !android/*
 Git/.DS_Store
+UI-Scenarios/cypress/screenshots/*

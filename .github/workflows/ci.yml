@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies
       run: cd UI-Scenarios && npm ci
     - name: Run Cypress tests
-      run: cd UI-Scenarios && npx cypress run --headless
+      run: cd UI-Scenarios && npx cypress run --headless --browser electron
 
   mobile-tests:
     runs-on: macos-latest
