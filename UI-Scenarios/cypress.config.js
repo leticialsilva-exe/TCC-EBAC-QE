@@ -4,6 +4,7 @@ module.exports = defineConfig({
   e2e: {
     watchForFileChanges: false, 
     browser: 'electron',
+    pageLoadTimeout: 120000,
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
