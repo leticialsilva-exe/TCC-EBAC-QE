@@ -1,13 +1,13 @@
 export const config = {
 
-    runner: 'local',
-    port: 4723,
+    // runner: 'local',
+    // port: 4723,
 
-    // user: 'oauth-leehslash-a1f95',
-    // key: '7ceb9fcb-5acc-4e45-a757-525962f6f13e',
-    // hostname: 'ondemand.us-west-1.saucelabs.com',
-    // port: 443,
-    // baseUrl: 'wd/hub',
+    user: 'oauth-leehslash-c819e',
+    key: 'bc299a1e-6faa-4970-a00e-3547e350caef',
+    hostname: 'ondemand.us-west-1.saucelabs.com',
+    port: 443,
+    baseUrl: 'wd/hub',
       
     specs: [
         './test/specs/**/*.test.js'
@@ -30,25 +30,41 @@ export const config = {
         ['appium', {
             command: 'appium',
             args: {
-                port: 4723,
+                port: 443,
                 relaxedSecurity: true
             }
         }]
     ],
     maxInstances: 1,
     capabilities: [
+        // SAUCE LABS CONFIG
         {
-            "platformName": "iOS",
-            "appium:platformVersion": "18.2",
-            "appium:deviceName": "iPhone 15",
-            "appium:automationName": "XCUITest",
-            "appium:app": `${process.cwd()}/app/app/ios/loja-ebac.app`,
-            // "appium:udid": "0C65B04D-D387-4D99-A317-DE374797C139", // local only — removed for CI
-            "appium:appWaitActivity": ".MainActivity",
-            "appium:disableIdLocatorAutocompletion": true
-            //"appium:noReset": true, // Set noReset to true if you want to keep the app and its data on the simulator between test runs.
-            //"appium:fullReset": false // Ensure fullReset is set to false if you want to avoid a complete simulator reset and potential recreation.
+        platformName: 'iOS',
+        'appium:app': 'storage:filename=loja-ebac.app.zip',
+        'appium:deviceName': 'iPhone Simulator',
+        'appium:platformVersion': '15.0',
+        'appium:automationName': 'XCUITest',
+        'sauce:options': {
+            appiumVersion: '2.0.0',
+            build: 'appium-build-teste-ebacshop',
+            name: 'Teste Ebac Shop iOS',
+            deviceOrientation: 'PORTRAIT',
+        },
         }
+
+        // Local configs
+        // {
+        //     "platformName": "iOS",
+        //     "appium:platformVersion": "18.2",
+        //     "appium:deviceName": "iPhone 15",
+        //     "appium:automationName": "XCUITest",
+        //     "appium:app": `${process.cwd()}/app/app/ios/loja-ebac.app`,
+        //     // "appium:udid": "0C65B04D-D387-4D99-A317-DE374797C139", // local only — removed for CI
+        //     "appium:appWaitActivity": ".MainActivity",
+        //     "appium:disableIdLocatorAutocompletion": true,
+        //     //"appium:noReset": true, // Set noReset to true if you want to keep the app and its data on the simulator between test runs.
+        //     //"appium:fullReset": false // Ensure fullReset is set to false if you want to avoid a complete simulator reset and potential recreation.
+        // }
         // {
         //     platformName: 'Android',
         //     'appium:app': 'storage:filename=ebacshop.aab', // The filename of the mobile app

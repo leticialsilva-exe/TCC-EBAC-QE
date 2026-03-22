@@ -14,7 +14,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '18'
     - name: Install dependencies
       run: cd API-Scenarios && npm ci
     - name: Run tests
@@ -27,11 +27,11 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '18'
     - name: Install dependencies
       run: cd UI-Scenarios && npm ci
     - name: Run Cypress tests
-      run: cd UI-Scenarios && npx cypress run --headless --browser electron
+      run: cd UI-Scenarios && npx cypress run --headless
 
   mobile-tests:
     runs-on: macos-latest
@@ -40,18 +40,8 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '18'
     - name: Install dependencies
       run: cd Mobile-Scenarios && npm ci
-    - name: Install Appium and XCUITest driver
-      run: |
-        npm install -g appium
-        appium driver install xcuitest
-    - name: Boot iOS Simulator
-      run: |
-        UDID=$(xcrun simctl list devices available | grep "iPhone 15" | grep -v "Plus\|Pro" | head -1 | awk -F'[()]' '{print $2}')
-        echo "Booting simulator: $UDID"
-        xcrun simctl boot "$UDID" || true
-        xcrun simctl bootstatus "$UDID" -b
     - name: Run WebDriverIO tests
       run: cd Mobile-Scenarios && npx wdio run wdio.ios.conf.js
